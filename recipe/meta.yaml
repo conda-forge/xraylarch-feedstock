@@ -1,5 +1,5 @@
 {% set name = "xraylarch" %}
-{% set version = "0.9.55" %}
+{% set version = "0.9.56" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 41fee953ea308c52ecf0de11140cb89d5b7475f1a67ca69e7c71c15697bf117e
+  sha256: c44022382b42e2f1ad0fd5dd7e0675524a53cc54ca1d405ce22262454cdc2899
 
 build:
   number: 0
@@ -74,7 +74,7 @@ test:
     - xas_viewer --help
     - gse_mapviewer --help
     - xrfdisplay --help
-    - "xrfdisplay_epics --help || echo 'Failed, but RC=0'"  # [not win]
+    - xrfdisplay_epics --help || echo 'Failed, but RC=0'    # [not win]
   requires:
     - pip
     - psycopg2-binary
