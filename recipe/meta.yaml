@@ -12,7 +12,7 @@ source:
     - 0001-PKG-patch-package_data.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - larch = larch.apps:run_larch
     - larch_server = larch.apps:run_larch_server
