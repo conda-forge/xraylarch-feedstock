@@ -1,89 +1,128 @@
 {% set name = "xraylarch" %}
-{% set version = "0.9.71" %}
+{% set version = "0.9.74" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-suite
   version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0394d9a02284f3befe84c12c683dfeb97fa4a577a5f572426990a750ff05cd99
-  patches:
-    - 0001-PKG-patch-package_data.patch
+  sha256: 40c7e821170d7290c87db522e96761853390c29782858a87bccd5b64c3f8ae5e
 
 build:
   number: 0
-  entry_points:
-    - larch = larch.apps:run_larch
-    - larch_server = larch.apps:run_larch_server
-    - feff6l = larch.apps:run_feff6l
-    - feff8l = larch.apps:run_feff8l
-    - xas_viewer = larch.apps:run_xas_viewer
-    - gse_mapviewer = larch.apps:run_gse_mapviewer
-    - xrfdisplay = larch.apps:run_xrfdisplay
-    - xrfdisplay_epics = larch.apps:run_xrfdisplay_epics
-  script: |
-    {{ PYTHON }} -m pip install . --no-deps -vv
   skip: true  # [py<37]
 
-requirements:
-  host:
-    - python
-    - pip
-    - setuptools_scm
-  run:
-    - python
-    - asteval >=0.9.18
-    - cchardet
-    - fabio
-    - h5py >=2.8
-    - importlib-metadata
-    - lmfit >=1.0
-    - matplotlib-base >=3.0
-    - numdifftools
-    - numpy >=1.7
-    - peakutils >=1.0.0
-    - pillow >=3.4
-    - psutil
-    - pyFAI
-    - pymatgen
-    - pyshortcuts >=1.7.2
-    - pytest
-    - pyyaml
-    - requests >=2.1
-    - scikit-image
-    - scikit-learn
-    - scipy >=1.2
-    - silx >=1.0
-    - six >=1.10
-    - sqlalchemy >=0.9
-    - termcolor
-    - toml
-    - uncertainties
-    - wxmplot
-    - wxpython
-    - wxutils
-    - xraydb >=4.3
+outputs:
+  - name: xraylarch-base
+    script: build_base.bat  # [win]
+    script: build_base.sh  # [not win]
+    build:
+      entry_points:
+        - larch = larch.apps:run_larch
+        - feff6l = larch.apps:run_feff6l
+        - feff8l = larch.apps:run_feff8l
+        - larch_server = larch.apps:run_larch_server
+        - larix = larch.apps:run_larix
+        - xasviewer = larch.apps:run_xas_viewer
+        - larch_xrf = larch.apps:run_larch_xrf
+        - larch_xrd1d = larch.apps:run_larch_xrd1d
+        - gse_mapviewer = larch.apps:run_gse_mapviewer
+        - epics_xrf = larch.apps:run_epics_xrf
+    requirements:
+      host:
+        - python
+        - pip
+        - setuptools_scm
+      run:
+        - python
+        - asteval >=0.9.28
+        - numpy >=1.20
+        - scipy >=1.7
+        - uncertainties >=3.1.4
+        - lmfit >=1.2.1
+        - uncertainties >=3.1
+        - pyshortcuts >=1.9.0
+        - xraydb >=4.5
+        - silx-base >=0.15.2
+        - matplotlib-base >=3.5
+        - sqlalchemy >=2.0
+        - sqlalchemy-utils
+        - h5py >=3.2
+        - hdf5plugin
+        - pillow >=8.3.2
+        - numdifftools
+        - pandas
+        - packaging
+        - pip
+        - pyyaml
+        - toml
+        - termcolor
+        - dill
+        - imageio
+        - charset-normalizer
+        - peakutils
+        - requests
+        - scikit-image
+        - scikit-learn
+        - psutil
+        - pymatgen
+        - mp-api
+        - pycifrw
+        - fabio
+        - pyfai-base
+        - numexpr ==2.8.4  # [py<39]
+        - numexpr >=2.8.7  # [py>38]
+    test:
+      imports:
+        - larch
+      #commands:
+      #  - pip check
+      #requires:
+      #  - pip
 
-test:
-  imports:
-    - larch
-    - larch.bin
-  commands:
-    # - pip check
-    - larch --help
-    - larch_server --help
-    - feff6l --help
-    - feff8l --help
-    - xas_viewer --help
-    - gse_mapviewer --help
-    - xrfdisplay --help
-    - xrfdisplay_epics --help || echo 'Failed, but RC=0'    # [not (win or osx)]
-  requires:
-    # - pip
-    - psycopg2-binary
-    - pycifrw
-    - pyepics
+  - name: xraylarch
+    build:
+      noarch: generic
+    requirements:
+      host:
+        - python
+      run:
+        - python
+        - silx
+        - pyfai
+        # wxgui extras_require
+        - wxpython >=4.1
+        - wxutils >=0.3.0
+        - wxmplot >=0.9.57
+        # qtgui extras_require
+        - pyqt
+        - pyqtwebengine
+        - pyqtgraph
+        # jupyter extras_require
+        - jupyter_core >=5.0
+        - jupyter_client
+        - jupyter_server
+        - notebook
+        - nbformat
+        - ipywidgets
+        - plotly
+        - py3dmol
+        - {{ pin_subpackage('xraylarch-base', max_pin="x.x.x") }}
+    test:
+      imports:
+        - larch
+      commands:
+        - larch --help
+        - feff6l --help
+        - feff8l --help
+        - larch_server --help
+        - larix --help
+        - xasviewer --help
+        - larch_xrf --help
+        # - larch_xrd1d
+        - gse_mapviewer --help
+        # - epics_xrf
 
 about:
   home: https://xraypy.github.io/xraylarch
