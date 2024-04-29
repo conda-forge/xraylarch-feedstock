@@ -10,7 +10,7 @@ source:
   sha256: d28cc7bf17157cb1b1b87ba8d5b9f11e7e8c97e06d7298cd918a179fed15f3ac
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37]
 
 outputs:
