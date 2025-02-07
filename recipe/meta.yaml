@@ -10,7 +10,7 @@ source:
   sha256: f05ee76c62c711b6e27dc8020283f46c11346be558dd6c92a650188db660f236
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<37]
 
 outputs:
@@ -37,42 +37,42 @@ outputs:
       run:
         - python
         - asteval >=0.9.28
-        - numpy >=1.20
-        - scipy >=1.7
-        - uncertainties >=3.1.4
-        - lmfit >=1.2.1
-        - uncertainties >=3.1
-        - pyshortcuts >=1.9.0
-        - xraydb >=4.5
-        - silx-base >=0.15.2
-        - matplotlib-base >=3.5
-        - sqlalchemy >=2.0
-        - sqlalchemy-utils
+        - charset-normalizer
+        - dill
+        - fabio
         - h5py >=3.2
         - hdf5plugin
-        - pillow >=8.3.2
-        - numdifftools
-        - pandas
-        - packaging
-        - pip
-        - pyyaml
-        - toml
-        - termcolor
-        - dill
         - imageio
-        - charset-normalizer
+        - lmfit >=1.2.1
+        - matplotlib-base >=3.5
+        - mp-api
+        - numdifftools
+        - numexpr ==2.8.4  # [py<39]
+        - numexpr >=2.8.7  # [py>38]
+        - numpy >=1.20
+        - packaging
+        - pandas
         - peakutils
+        - pillow >=8.3.2
+        - pip
+        - psutil
+        - pycifrw
+        - pyfai-base
+        - pymatgen
+        - pyshortcuts >=1.9.5
+        - pyyaml
         - requests
         - scikit-image
         - scikit-learn
-        - psutil
-        - pymatgen
-        - mp-api
-        - pycifrw
-        - fabio
-        - pyfai-base
-        - numexpr ==2.8.4  # [py<39]
-        - numexpr >=2.8.7  # [py>38]
+        - scipy >=1.7
+        - silx-base >=0.15.2
+        - sqlalchemy >=2.0
+        - sqlalchemy-utils
+        - termcolor
+        - toml
+        - uncertainties >=3.1
+        - uncertainties >=3.1.4
+        - xraydb >=4.5
     test:
       imports:
         - larch
@@ -136,5 +136,4 @@ extra:
   recipe-maintainers:
     - maurov
     - mrakitin
-    - kbeeperez
     - conda-forge/event-model
