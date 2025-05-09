@@ -11,7 +11,7 @@ source:
 
 build:
   number: 2
-  skip: true  # [py<39]
+  skip: true  # [py<39 or py>=313]
 
 outputs:
   - name: xraylarch-base
@@ -31,11 +31,11 @@ outputs:
         - epics_xrf = larch.apps:run_epics_xrf
     requirements:
       host:
-        - python >=3.9
+        - python >=3.9,<3.13
         - pip
         - setuptools_scm
       run:
-        - python >=3.9
+        - python >=3.9,<3.13
         - asteval >=1.0.4
         - charset-normalizer
         - dill
@@ -86,9 +86,9 @@ outputs:
       noarch: generic
     requirements:
       host:
-        - python >=3.9
+        - python >=3.9,<3.13
       run:
-        - python >=3.9
+        - python >=3.9,<3.13
         - silx
         - pyfai
         # wxgui extras_require
