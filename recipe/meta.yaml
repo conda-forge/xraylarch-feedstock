@@ -92,7 +92,7 @@ outputs:
         - silx
         - pyfai
         # wxgui extras_require
-        - wxpython >=4.1
+        - wxpython >=4.2
         - wxutils >=0.3.0
         - wxmplot >=0.9.57
         # qtgui extras_require
