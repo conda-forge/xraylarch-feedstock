@@ -31,12 +31,12 @@ outputs:
         - epics_xrf = larch.apps:run_epics_xrf
     requirements:
       host:
-        - python>=3.9
+        - python >=3.9
         - pip
         - setuptools_scm
       run:
-        - python>=3.9
-        - asteval >=0.9.28
+        - python >=3.9
+        - asteval >=1.0.4
         - charset-normalizer
         - dill
         - fabio
@@ -47,7 +47,7 @@ outputs:
         - larixite
         - matplotlib-base >=3.5
         - mp-api
-        - numdifftools
+        - numdifftools >=0.9.41
         - numexpr >=2.8.7  # [py>38]
         - numpy >=1.23,<2
         - packaging
@@ -58,7 +58,7 @@ outputs:
         - psutil
         - pycifrw
         - pyfai-base
-        - pymatgen
+        - pymatgen >=2024.8.9
         - pyshortcuts >=1.9.5
         - pyyaml
         - requests
@@ -70,9 +70,8 @@ outputs:
         - sqlalchemy-utils
         - termcolor
         - toml
-        - uncertainties >=3.1
-        - uncertainties >=3.1.4
-        - xraydb >=4.5
+        - uncertainties >=3.2.1
+        - xraydb >=4.5.5
     test:
       imports:
         - larch
@@ -87,9 +86,9 @@ outputs:
       noarch: generic
     requirements:
       host:
-        - python>=3.9
+        - python >=3.9
       run:
-        - python>=3.9
+        - python >=3.9
         - silx
         - pyfai
         # wxgui extras_require
