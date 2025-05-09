@@ -127,7 +127,7 @@ outputs:
 
 about:
   home: https://xraypy.github.io/xraylarch
-  license: MIT License
+  license: MIT
   license_file: LICENSE
   summary: 'Larch: X-ray Analysis for Synchrotron Applications using Python'
   doc_url: https://xraypy.github.io/xraylarch
