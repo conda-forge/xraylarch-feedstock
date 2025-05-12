@@ -31,11 +31,11 @@ outputs:
         - epics_xrf = larch.apps:run_epics_xrf
     requirements:
       host:
-        - python >=3.9,<3.13
+        - python
         - pip
         - setuptools_scm
       run:
-        - python >=3.9,<3.13
+        - python
         - asteval >=1.0.4
         - charset-normalizer
         - dill
