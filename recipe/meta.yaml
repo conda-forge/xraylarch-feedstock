@@ -86,9 +86,9 @@ outputs:
       noarch: generic
     requirements:
       host:
-        - python >=3.9,<3.13
+        - python
       run:
-        - python >=3.9,<3.13
+        - python
         - silx
         - pyfai
         # wxgui extras_require
