@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/xraylarch-feeds
 
 Home: https://xraypy.github.io/xraylarch
 
-Package license: BSD-2-Clause
+Package license: MIT
 
 Summary: Larch: X-ray Analysis for Synchrotron Applications using Python
 
