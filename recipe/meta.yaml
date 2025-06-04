@@ -1,5 +1,5 @@
 {% set name = "xraylarch" %}
-{% set version = "2025.1.1" %}
+{% set version = "2025.2.0" %}
 
 package:
   name: {{ name|lower }}-suite
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f05ee76c62c711b6e27dc8020283f46c11346be558dd6c92a650188db660f236
+  sha256: fe888300e349e2e8318afce205b22b1ce8d02050548c493ba6d36d3353bdbdf4
 
 build:
-  number: 2
+  number: 0
   skip: true  # [py<39]
 
 outputs:
@@ -38,6 +38,7 @@ outputs:
         - python
         - asteval >=1.0.4
         - charset-normalizer
+        - darkdetect
         - dill
         - fabio
         - h5py >=3.2
@@ -45,11 +46,11 @@ outputs:
         - imageio
         - lmfit >=1.3.1
         - larixite
-        - matplotlib-base >=3.5
+        - matplotlib-base >=3.8
         - mp-api
         - numdifftools >=0.9.41
         - numexpr >=2.8.7  # [py>38]
-        - numpy >=1.23,<2
+        - numpy >=1.23
         - packaging
         - pandas
         - peakutils
@@ -58,7 +59,7 @@ outputs:
         - psutil
         - pycifrw
         - pyfai-base
-        - pymatgen >=2024.8.9
+        - pymatgen >=2024.10.22
         - pyshortcuts >=1.9.5
         - pyyaml
         - requests
@@ -71,7 +72,7 @@ outputs:
         - termcolor
         - toml
         - uncertainties >=3.2.1
-        - xraydb >=4.5.5
+        - xraydb >=4.5.6
     test:
       imports:
         - larch
@@ -92,7 +93,7 @@ outputs:
         - silx
         - pyfai
         # wxgui extras_require
-        - wxpython >=4.2
+        - wxpython >=4.2.1
         - wxutils >=0.3.0
         - wxmplot >=0.9.57
         # qtgui extras_require
