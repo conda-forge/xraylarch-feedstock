@@ -38,6 +38,7 @@ outputs:
         - python
         - asteval >=1.0.4
         - charset-normalizer
+        - darkdetect
         - dill
         - fabio
         - h5py >=3.2
