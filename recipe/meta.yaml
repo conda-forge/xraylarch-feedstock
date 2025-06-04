@@ -94,8 +94,8 @@ outputs:
         - pyfai
         # wxgui extras_require
         - wxpython >=4.2.1
-        - wxutils >=0.3.4
-        - wxmplot >=2025.1.1
+        - wxutils >=0.3.0
+        - wxmplot >=0.9.57
         # qtgui extras_require
         - pyqt
         - pyqtwebengine
