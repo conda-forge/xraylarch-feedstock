@@ -268,4 +268,5 @@ Feedstock Maintainers
 * [@conda-forge/event-model](https://github.com/orgs/conda-forge/teams/event-model/)
 * [@maurov](https://github.com/maurov/)
 * [@mrakitin](https://github.com/mrakitin/)
+* [@newville](https://github.com/newville/)
 
