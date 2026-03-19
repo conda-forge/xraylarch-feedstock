@@ -10,7 +10,7 @@ source:
   sha256: 083c0d465094036d3f45d94eec9146270c4add4a0e9064d9d619dca38b8d2ff9
 
 build:
-  number: 0
+  number: 1
   skip: true  # [py<310]
 
 outputs:
@@ -94,8 +94,8 @@ outputs:
         - pyfai
         # wxgui extras_require
         - wxpython >=4.2.2
-        - wxutils >=0.3.6
-        - wxmplot >=2025.1.6
+        - wxutils >=2026.1.0
+        - wxmplot >=2026.1.0
         - darkdetect
         # qtgui extras_require
         - pyqt
@@ -139,5 +139,6 @@ about:
 extra:
   recipe-maintainers:
     - maurov
+    - newville
     - mrakitin
     - conda-forge/event-model
